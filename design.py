@@ -1,0 +1,50 @@
+# src/ui/design.py
+from PyQt5 import QtCore, QtWidgets
+
+class Ui_MainWindow(object):
+    def setupUi(self, MainWindow):
+        MainWindow.setObjectName("MainWindow")
+        MainWindow.resize(800, 600)
+        self.horizontalLayout = QtWidgets.QHBoxLayout(MainWindow)
+        self.horizontalLayout.setObjectName("horizontalLayout")
+        self.categoryListWidget = QtWidgets.QListWidget(MainWindow)
+        self.categoryListWidget.setMaximumSize(QtCore.QSize(200, 16777215))
+        self.categoryListWidget.setObjectName("categoryListWidget")
+        self.horizontalLayout.addWidget(self.categoryListWidget)
+        self.verticalLayoutRight = QtWidgets.QVBoxLayout()
+        self.verticalLayoutRight.setObjectName("verticalLayoutRight")
+        self.titleLabel = QtWidgets.QLabel(MainWindow)
+        self.titleLabel.setAlignment(QtCore.Qt.AlignCenter)
+        self.titleLabel.setText("欢迎进入垃圾分类识别系统!")
+        self.verticalLayoutRight.addWidget(self.titleLabel)
+        self.resultLabel = QtWidgets.QLabel(MainWindow)
+        self.resultLabel.setAlignment(QtCore.Qt.AlignCenter)
+        self.resultLabel.setText("无预测结果")
+        self.verticalLayoutRight.addWidget(self.resultLabel)
+        self.imageLabel = QtWidgets.QLabel(MainWindow)
+        self.imageLabel.setAlignment(QtCore.Qt.AlignCenter)
+        self.imageLabel.setText("没有图片被选择")
+        self.verticalLayoutRight.addWidget(self.imageLabel)
+        self.horizontalButtonLayout = QtWidgets.QHBoxLayout()
+        self.horizontalButtonLayout.setObjectName("horizontalButtonLayout")
+        self.previousButton = QtWidgets.QPushButton(MainWindow)
+        self.previousButton.setText("上一张")
+        self.horizontalButtonLayout.addWidget(self.previousButton)
+        self.nextButton = QtWidgets.QPushButton(MainWindow)
+        self.nextButton.setText("下一张")
+        self.horizontalButtonLayout.addWidget(self.nextButton)
+        self.verticalLayoutRight.addLayout(self.horizontalButtonLayout)
+        self.predictButton = QtWidgets.QPushButton(MainWindow)
+        self.predictButton.setText("识别")
+        self.verticalLayoutRight.addWidget(self.predictButton)
+        self.exitButton = QtWidgets.QPushButton(MainWindow)
+        self.exitButton.setText("退出")
+        self.verticalLayoutRight.addWidget(self.exitButton)
+        self.horizontalLayout.addLayout(self.verticalLayoutRight)
+
+        self.retranslateUi(MainWindow)
+        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+    def retranslateUi(self, MainWindow):
+        _translate = QtCore.QCoreApplication.translate
+        MainWindow.setWindowTitle(_translate("MainWindow", "垃圾分类识别"))
